@@ -1,0 +1,71 @@
+.header-container {
+    color:var(--white);
+    height:var(--header-height);
+    background-color: var(--transparent-bg);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.header-light {
+    background-color: var(--white);
+}
+
+.logo {
+    color: var(--red);
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.search-container {
+    width: 40%;
+}
+
+.search-input{
+    width: 100%;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: var(--black);
+    color: var(--grey-text);
+}
+
+.create-account-button{
+    background-color: var(--red);
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    color: var(--white);
+    margin-left: 10px;
+}
+
+.header-buttons-container {
+    display: flex;
+    align-items: center;
+}
+
+.theme-buttons{
+    background-color: var(--black);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: solid 1px var(--grey);
+}
+
+.theme-icon-active {
+    background-color: var(--red);
+    padding: 0;
+}
+
+.theme-icon{
+    font-size: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 5px;
+}
