@@ -1,0 +1,4 @@
+.homepage-container {
+    margin-top: var(--header-height);
+    color: var(--white);
+}
