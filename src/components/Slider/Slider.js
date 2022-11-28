@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React from 'react'
+import './Slider.css'
+import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 
 
@@ -30,12 +32,34 @@ const sliderStyle={
     backgroundSize: "cover",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    height: "60vh"
+    height: "60vh",
+    position: "relative"
 }
 
+const handleLeft = () => {
+    console.log("left clicked");
+    index === 0?
+    setIndex(upcomingMovies.length -1) :
+    setIndex(index-1);
+}
+const handleRight = () => {
+    console.log("right clicked");
+    index === upcomingMovies.length - 1?
+    setIndex(0) :
+    setIndex(index+1);
+}
   return (
     <div style={ sliderStyle }> 
-        {upcomingMovies[0]?.title}
+        <div className="slider-overlay"></div>
+        <MdKeyboardArrowLeft className="left-arrow" 
+                              onClick={handleLeft}/>
+        <MdKeyboardArrowRight className="right-arrow" 
+                              onClick={handleRight}/>
+        <div className="movie-info">
+            <h1>{upcomingMovies[index]?.title}</h1>
+            <p>{upcomingMovies[index]?.overview.slice(0,120)}</p>
+            <p>Release Date: {upcomingMovies[index]?.release_date}</p>
+        </div>
     </div>
   )
 }
