@@ -5,10 +5,13 @@ import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md"
 import StarRatings from 'react-star-ratings'
 
 
-function Slider({apiKey, baseUrl}) {
+function Slider() {
+
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const baseUrl = process.env.REACT_APP_BASE_URL;
 
 //base url for images
-    const imageUrl = "https://image.tmdb.org/t/p/original"
+    const imageUrl = process.env.REACT_APP_IMAGE_BASE_URL;
 
     const [upcomingMovies, setUpcomingMovies] = React.useState(
     []);

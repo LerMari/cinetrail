@@ -15,6 +15,10 @@
     background-color: var(--white);
 }
 
+.header-light input {
+    background-color: lightgray;
+}
+
 .logo {
     color: var(--red);
     font-size: 2rem;

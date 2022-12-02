@@ -2,3 +2,29 @@
     margin-top: var(--header-height);
     color: var(--white);
 }
+
+.homepage-light {
+    background-color: var(--white);
+    color: black;
+}
+
+.movies-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.popular-cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.top-rated-container {
+    width: 40%
+}
+
+.page-numbers{
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    cursor: pointer;
+}

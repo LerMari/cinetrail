@@ -1,0 +1,24 @@
+.movie-info-top{
+    position: absolute;
+    top: 0;
+    color: var(--red);
+    opacity: 0;
+}
+
+.movie-info-bottom{
+    position: absolute;
+    bottom: 0;
+    color: white;
+    opacity: 0;
+}
+
+.popular-card:hover .movie-info-top,
+.popular-card:hover .movie-info-bottom {
+    opacity: 1;
+    
+}
+
+.popular-card {
+    margin: 10px;
+    cursor: pointer;
+}
