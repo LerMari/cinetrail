@@ -15,10 +15,23 @@
 .popular-card:hover .movie-info-top,
 .popular-card:hover .movie-info-bottom {
     opacity: 1;
+    animation: myAnim 2s ease 0s 1 normal forwards;
     
 }
 
 .popular-card {
     margin: 10px;
     cursor: pointer;
+}
+
+@keyframes myAnim {
+	0% {
+		opacity: 0;
+		transform: translateY(50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
