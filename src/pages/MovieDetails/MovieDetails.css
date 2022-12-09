@@ -1,0 +1,24 @@
+.details-container{
+    margin-top:var(--header-height);
+    color: var(--white);
+    min-height: 100vh;
+}
+
+.trailer-container {
+    position: relative;
+    padding-top: 56.25%;
+}
+
+.trailer-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.trailer-container-blank{
+    position:relative;
+    padding-top:56.25%;
+    color:var(--red);
+}
+.trailer-container-blank p{
+    background-color:var(--dark-bg)
+}
