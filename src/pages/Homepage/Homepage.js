@@ -44,7 +44,8 @@ function Homepage() {
                 popularMovies.map(item=> <p>{item.title}</p>)
               } */}
                {
-                popularMovies.map(item=> <MovieCard movie={item} 
+                popularMovies.map(item=> <MovieCard key={item.id}
+                                                    movie={item} 
                                                    imageUrl={item.poster_path}
                                                    imgHeight="300px" 
                                                    cardStyle="popular-card"
@@ -56,7 +57,7 @@ function Homepage() {
             <div className="page-numbers">
               <p>Select Page</p>
               {
-                pageNumbers.map(num => <p onClick={()=>setPage(num)}>{num}</p>)
+                pageNumbers.map(num => <p key={num} onClick={()=>setPage(num)}>{num}</p>)
               }
 
 
@@ -70,7 +71,8 @@ function Homepage() {
             <h3>Top Rated Movies</h3>
             <div className="top-rated-cards-wrapper">
               {
-                topRatedMovies.map(item=> <MovieCard movie={item}
+                topRatedMovies.map(item=> <MovieCard key={item.id}
+                                                      movie={item}
                                                      imageUrl={item.backdrop_path} 
                                                      imgHeight="100px" 
                                                      cardStyle="top-rated-card"
