@@ -3,6 +3,8 @@ import {useParams} from 'react-router-dom'
 import './MovieDetails.css'
 import axios from 'axios'
 import ReactPlayer from 'react-player'
+import Rating from '../../components/Rating/Rating'
+
 
 function MovieDetails() {
     //  const params= useParams();
@@ -18,6 +20,8 @@ function MovieDetails() {
      //create state to hold movie
      const [movie, setMovie] = React.useState({});
     
+    const [rating, setRating] = React.useState(0);
+
      React.useEffect(
         ()=>{
 
@@ -66,6 +70,24 @@ function MovieDetails() {
             <p>No trailers released yet</p>
             </div>
         }
+
+        <div className="info-container">
+            {movie?.original_title}
+            <Rating stars={rating} />
+            <div className="moviedetails-info">
+                <img src={`${imageUrl}/${movie?.poster_path}`} 
+                 className="details-poster" />
+
+                <div className="moviedetails-right">
+                    <h2>{movie?.tagline}</h2>
+                    <h4>{movie?.overview}</h4>
+                    <h4>Status: <span>{movie?.status}</span></h4>
+                    <h4>Runtime: <span>{movie?.runtime}</span></h4>
+                    <h4>Budget: <span>{movie?.budget}</span></h4>
+                </div>
+            </div>
+
+        </div>
 
     </div>
   )

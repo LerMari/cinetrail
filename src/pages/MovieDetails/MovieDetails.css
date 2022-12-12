@@ -22,3 +22,18 @@
 .trailer-container-blank p{
     background-color:var(--dark-bg)
 }
+
+.details-poster {
+    width: 280px;
+    border-radius: 8px;
+}
+
+.moviedetails-info{
+    display: flex;
+}
+.moviedetails-right {
+    display: flex;
+    width: 70%;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
