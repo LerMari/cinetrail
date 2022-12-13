@@ -24,6 +24,8 @@ function MovieDetails() {
 
     //state to hold reviews
     const [reviews, setReviews] = React.useState([]);
+    const [reviewNumber, setReviewNumber] = React.useState(3);
+    const [totalReviews, setTotalReviews] = React.useState(0);
 
      React.useEffect(
         ()=>{
@@ -54,6 +56,7 @@ function MovieDetails() {
             axios.get(`${baseUrl}/movie/${movieId}/reviews?api_key=${apiKey}`)
             .then(res=>{
                 setReviews(res.data.results)
+                setTotalReviews(res.data.total_results)
             })
             .catch(err=>console.log(err))
         
@@ -104,9 +107,16 @@ function MovieDetails() {
         </div>
 
         <div className="review-container">
-            {reviews.map(item => <Review review={item} />)}
+            {reviews.slice(0,reviewNumber).map(item => <Review 
+                                                        key={item.id}
+                                                        review={item} />)}
         </div>
-
+        {
+            reviewNumber <= totalReviews?
+            <p className="review-toggle" onClick={()=>setReviewNumber(reviewNumber + 3)}>Read more reviews</p>
+            :
+            <p className="review-toggle" onClick={()=>setReviewNumber(3)}>End of reviews</p>
+        }
     </div>
   )
 }

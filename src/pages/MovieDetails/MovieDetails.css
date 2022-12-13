@@ -37,3 +37,8 @@
     flex-direction: column;
     justify-content: space-evenly;
 }
+
+.review-toggle {
+    cursor: pointer;
+    color: var(--red);
+}
