@@ -1,10 +1,13 @@
 import React, {useContext} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import './Header.css'
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md'
 import { ThemeContext } from '../../contexts/ThemeContext'
 
 function Header() {
+
+    //activate useNavigate
+    let navigate = useNavigate();
 
     //const darkMode = true;
     const { darkMode, setDarkMode} = useContext(ThemeContext);
@@ -37,7 +40,8 @@ function Header() {
                 }
             </div>   
             <div>
-                <button className="create-account-button">Create an account</button>
+                <button className="create-account-button"
+                onClick={() => navigate(`/signup`)}>Create an account</button>
             </div>
         </div>
     </div>
