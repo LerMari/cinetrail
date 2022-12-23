@@ -1,14 +1,42 @@
 import React from 'react'
 import './Sign.css'
 import {Link} from 'react-router-dom'
+import axios from 'axios'
+import { UserContext } from '../../contexts/UserContext'
+import {useNavigate} from 'react-router-dom'
+
 
 function Signin() {
+        const serverUrl="https://cinetrail-server.herokuapp.com"
+
+        let navigate = useNavigate();
+
+        //global state
+        const {user, setUser, token, setToken} = React.useContext(UserContext);
 
 
     const [email, setEmail] = React.useState("")
     const[password, setPassword] = React.useState('')
 
-    const handleSignin = () => {
+    const handleSignin = (e) => {
+        e.preventDefault();
+        console.log(email,password);
+        //api call to log in
+        axios.post(`${serverUrl}/users/login`, {email, password})
+        .then(res => {
+            console.log(res.data)
+            //saver user data and token
+            setUser(res.data)
+            setToken(res.data.token)
+            //save to local storage
+            localStorage.setItem('token', res.data.token)
+            localStorage.setItem('userInfo', JSON.stringify(res.data))
+        })
+        .catch(err => console.log(err))
+
+        //nav to homepage
+        navigate('/')
+
 
     }
 

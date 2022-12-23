@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    z-index: 2;
 }
 
 .header-light {
@@ -72,4 +73,19 @@
     border-radius: 50%;
     cursor: pointer;
     padding: 5px;
+}
+
+.fav-div {
+    background-color: black;
+}
+
+.logout {
+    color: red;
+    cursor: pointer;
+}
+
+.profile-img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
 }
