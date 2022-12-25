@@ -28,6 +28,7 @@
 
 .search-container {
     width: 40%;
+    position: relative;
 }
 
 .search-input{
@@ -37,6 +38,17 @@
     border-radius: 8px;
     background-color: var(--black);
     color: var(--grey-text);
+}
+
+.search-results-container {
+    position: absolute;
+    background-color: aliceblue;
+    top: 30px;
+    left: 0;
+    height: 300px;
+    width: 100%;
+    color: black;
+    overflow: scroll;
 }
 
 .create-account-button{

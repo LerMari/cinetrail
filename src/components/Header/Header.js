@@ -4,15 +4,26 @@ import './Header.css'
 import { MdOutlineDarkMode, MdOutlineLightMode } from 'react-icons/md'
 import { ThemeContext } from '../../contexts/ThemeContext'
 import { UserContext } from '../../contexts/UserContext'
+import axios from 'axios'
+import SearchResult from '../SearchResult/SearchResult'
+
 
 
 function Header() {
+
+    const apiKey = process.env.REACT_APP_API_KEY;
+    const baseUrl = process.env.REACT_APP_BASE_URL;
+
     const {user, setUser, token, setToken} = React.useContext(UserContext);
 
     //activate useNavigate
     let navigate = useNavigate();
 
-    const [profileOptions, setProfileOptions] = React.useState(true);
+    const [profileOptions, setProfileOptions] = React.useState(false);
+
+    //state for search
+    const [query, setQuery] = React.useState('')
+    const [queryResults, setQueryResults] = React.useState([]);
 
     const handleLogout = () =>{
         //clear local storage
@@ -32,11 +43,37 @@ function Header() {
         localStorage.setItem("darkMode", !darkMode);
     }
 
+    const handleSearch = (e) => {
+        //console.log("e")
+        //save text as query
+        setQuery(e.target.value);
+        //make api call using query
+        axios.get(`${baseUrl}/search/movie?api_key=${apiKey}&query=${e.target.value}`)
+        .then(res => {
+            console.log(res.data.results)
+            setQueryResults(res.data.results)
+        })
+        .catch(err => console.log(err))
+    }
+
   return (
     <div className={darkMode ? "header-container" : "header-container header-light"}>
         <Link to = '/' className="logo">CineTrail</Link>
         <div className="search-container">
-            <input placeholder="Search movies" className="search-input" />
+            <input placeholder="Search movies" 
+             className="search-input"
+             onChange={handleSearch} />
+             {
+                query !== ''?
+                <div className="search-results-container">
+                {
+                queryResults?.map(item => <SearchResult movie={item}
+                                                        setQuery={setQuery} />)
+                }
+                </div>
+                :
+                null
+             }
         </div>
         <div className="header-buttons-container">
             <div className="theme-buttons-container">

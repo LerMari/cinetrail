@@ -1,0 +1,11 @@
+.search-link {
+    display: flex;
+    color: black;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-link img {
+    height: 50px;
+    width: 80px;
+}
